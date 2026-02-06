@@ -1,7 +1,9 @@
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * Function\<T, R> → recebe um T, devolve um R
@@ -15,6 +17,7 @@ public class Main {
         learningFunction();
         learningPredicate();
         learningConsumer();
+        larningSupplier();
     }
 
     /**
@@ -46,5 +49,14 @@ public class Main {
     private static void learningConsumer(){
         Consumer<String> imprimir = s -> System.out.println("Imprimindo: " + s);
         imprimir.accept("Camargo");
+    }
+
+    /**
+     * Supplier<T> é: não te peço nada, mas te entrego um T.
+     * É usado para gerar valores sob demanda.
+     */
+    private static void larningSupplier(){
+        Supplier<String> gerarId = () -> UUID.randomUUID().toString();
+        System.out.println(gerarId.get());
     }
 }
