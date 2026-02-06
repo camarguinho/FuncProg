@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -11,8 +12,9 @@ import java.util.function.Predicate;
 public class Main {
 
     public static void main(String[] args){
-        //learningFunction();
+        learningFunction();
         learningPredicate();
+        learningConsumer();
     }
 
     /**
@@ -35,7 +37,14 @@ public class Main {
         Predicate<String> startWithG = s -> s.startsWith("G");
         List<String> output = input.stream().filter(startWithG).toList();
         System.out.println(output);
+    }
 
-
+    /**
+     * Consumer<T> é: me dá um T, eu faço algo com ele e não te devolvo nada.
+     * É usado para efeitos colaterais—log, impressão, envio, gravação.
+     */
+    private static void learningConsumer(){
+        Consumer<String> imprimir = s -> System.out.println("Imprimindo: " + s);
+        imprimir.accept("Camargo");
     }
 }
