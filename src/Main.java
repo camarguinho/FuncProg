@@ -14,10 +14,11 @@ import java.util.function.Supplier;
 public class Main {
 
     public static void main(String[] args){
-        learningFunction();
-        learningPredicate();
-        learningConsumer();
-        larningSupplier();
+        //learningFunction();
+        //learningPredicate();
+        //learningConsumer();
+        //larningSupplier();
+        challenge();
     }
 
     /**
@@ -59,4 +60,24 @@ public class Main {
         Supplier<String> gerarId = () -> UUID.randomUUID().toString();
         System.out.println(gerarId.get());
     }
+
+    public static void challenge(){
+        List<String> input = List.of("andre", "bruno", "camargo");
+
+        Predicate<String> startWithC = s -> s.startsWith("c");
+        Function<String, String> toUpper = s -> s.toUpperCase();
+
+        List<String> output = input.stream().filter(startWithC).map(toUpper).toList();
+
+        Consumer<String> _print = s -> System.out.println("Imprimindo: " + s);
+        Supplier<String> _default = () -> "Chaves";
+
+        if (output.isEmpty()){
+            System.out.println(_default.get());
+        } else {
+            output.forEach(_print);
+        }
+    }
+
+
 }
