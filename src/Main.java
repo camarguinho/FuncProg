@@ -10,6 +10,12 @@ import java.util.function.Supplier;
  * Predicate\<T> → recebe um T, devolve boolean
  * Consumer\<T> → recebe um T, não devolve nada (efeito colateral)
  * Supplier\<T> → não recebe nada, devolve um T
+ *
+ * AMARRANDO COM STREAMS
+ * map → usa Function
+ * filter → usa Predicate
+ * forEach → usa Consumer
+ * orElseGet (Optional) → usa Supplier
  */
 public class Main {
 
